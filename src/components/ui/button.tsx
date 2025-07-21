@@ -9,15 +9,14 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-glow hover:shadow-glow",
+        default: "bg-primary text-primary-foreground hover:bg-primary/90 magnetic-btn",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border border-border bg-transparent hover:bg-secondary/50 hover:border-primary/50",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-secondary/50 hover:text-foreground",
+        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground hover-glow magnetic-btn",
+        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 magnetic-btn",
+        ghost: "hover:bg-accent hover:text-accent-foreground magnetic-btn",
         link: "text-primary underline-offset-4 hover:underline",
-        glass: "glass-card hover:scale-105 hover:shadow-glow border-glass-border/30",
-        hero: "bg-gradient-primary text-primary-foreground px-8 py-3 rounded-xl font-semibold shadow-glow hover:shadow-glow hover:scale-105 transform transition-all duration-300",
-        minimal: "text-muted-foreground hover:text-foreground border-b border-transparent hover:border-primary transition-all duration-300",
+        hero: "bg-gradient-primary text-primary-foreground hover:opacity-90 shadow-glow magnetic-btn",
+        premium: "bg-gradient-to-r from-primary to-accent text-white shadow-glow magnetic-btn hover:scale-105",
       },
       size: {
         default: "h-10 px-4 py-2",

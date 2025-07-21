@@ -119,7 +119,11 @@ export default {
 				'typewriter': 'typewriter 3s steps(40) 1s 1 normal both',
 				'blink': 'blink 1s steps(1) infinite',
 				'fade-in': 'fade-in 0.6s ease-out',
-				'scale-in': 'scale-in 0.4s ease-out'
+				'scale-in': 'scale-in 0.4s ease-out',
+				'slide-in-left': 'slideInLeft 0.6s ease-out',
+				'slide-in-right': 'slideInRight 0.6s ease-out',
+				'shimmer': 'shimmer 3s ease-in-out infinite',
+				'bounce': 'bounce 2s infinite'
 			},
 			backgroundImage: {
 				'gradient-primary': 'var(--gradient-primary)',

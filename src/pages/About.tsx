@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Download, Mail, MapPin, Clock, Award, Target, Heart } from "lucide-react";
 import dhruvPortrait from "@/assets/dhruv-portrait.jpg";
+import ScrollReveal from "@/components/ScrollReveal";
 
 const About = () => {
   const quickFacts = [
@@ -127,9 +128,10 @@ const About = () => {
         </div>
 
         {/* 4-Card Grid */}
-        <div className="mb-20">
-          <h2 className="text-3xl font-bold text-center mb-12">Why Work With Me</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <ScrollReveal>
+          <div className="mb-20">
+            <h2 className="text-3xl font-bold text-center mb-12">Why Work With Me</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {proficiencyCards.map((card, index) => (
               <div 
                 key={index} 
@@ -141,8 +143,9 @@ const About = () => {
                 <p className="text-xs text-muted-foreground">{card.description}</p>
               </div>
             ))}
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* Future Goals */}
         <div className="mb-20">
