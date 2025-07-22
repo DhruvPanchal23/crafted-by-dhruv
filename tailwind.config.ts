@@ -108,6 +108,10 @@ export default {
 				'scale-in': {
 					from: { opacity: '0', transform: 'scale(0.9)' },
 					to: { opacity: '1', transform: 'scale(1)' }
+				},
+				scroll: {
+					'0%': { transform: 'translateX(0)' },
+					'100%': { transform: 'translateX(-50%)' }
 				}
 			},
 			animation: {
@@ -123,7 +127,8 @@ export default {
 				'slide-in-left': 'slideInLeft 0.6s ease-out',
 				'slide-in-right': 'slideInRight 0.6s ease-out',
 				'shimmer': 'shimmer 3s ease-in-out infinite',
-				'bounce': 'bounce 2s infinite'
+				'bounce': 'bounce 2s infinite',
+				'scroll': 'scroll 20s linear infinite'
 			},
 			backgroundImage: {
 				'gradient-primary': 'var(--gradient-primary)',
