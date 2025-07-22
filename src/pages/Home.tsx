@@ -36,42 +36,54 @@ const Home = () => {
       <section className="container mx-auto px-4 py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8 animate-slide-in-left">
-            <div className="space-y-4">
+            <div className="space-y-6">
               <p className="text-lg text-muted-foreground">
-                Hey! {greeting} 👋
+                {greeting}
               </p>
-              <h1 className="text-4xl lg:text-6xl font-bold leading-tight text-shadow">
-                <span className="gradient-text-animated">Pixels, Logic and Story</span>
+              <h1 className="text-5xl lg:text-7xl font-bold leading-tight tracking-tight">
+                <span className="gradient-text-animated">FROM PIXELS TO PRODUCTS</span>
                 <br />
-                I build experiences that remember you back
+                <span className="text-4xl lg:text-6xl">LET'S MAKE IT HAPPEN!</span>
               </h1>
-              <p className="text-xl text-muted-foreground">
-                Hello, I'm <span className="text-foreground font-semibold">Dhruv Panchal</span> – 
-                Full Stack Developer & UI/UX Designer
+              <p className="text-lg text-muted-foreground max-w-md">
+                I'm available for full-time roles & freelance projects.
+              </p>
+              <p className="text-xl font-medium text-foreground">
+                Crafting experiences that remember you back.
               </p>
             </div>
 
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-wrap items-center gap-6 pt-4">
               <Button variant="premium" size="hero" className="group">
-                Let's Connect
+                Connect With Me
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <p className="text-muted-foreground">dhruvpanchal.dev@gmail.com</p>
             </div>
 
-            {/* Typing Effect */}
-            <div className="flex items-center gap-2">
-              <span className="text-muted-foreground">Currently:</span>
-              <span className="text-primary font-medium min-w-[200px]">
-                {currentHighlight}
-                <span className="animate-blink">|</span>
-              </span>
+            {/* Skills Showcase */}
+            <div className="grid grid-cols-2 gap-4 pt-4">
+              <div className="space-y-2">
+                <div className="text-primary font-medium">{currentHighlight}</div>
+                <div className="text-sm text-muted-foreground">Full Stack Development</div>
+              </div>
+              <div className="space-y-2">
+                <div className="text-primary font-medium">Frontend Development</div>
+                <div className="text-sm text-muted-foreground">Backend Development</div>
+              </div>
+              <div className="space-y-2">
+                <div className="text-primary font-medium">React Specialist</div>
+                <div className="text-sm text-muted-foreground">TypeScript Expert</div>
+              </div>
+              <div className="space-y-2">
+                <div className="text-primary font-medium">Modern Web Apps</div>
+                <div className="text-sm text-muted-foreground">Responsive Design</div>
+              </div>
             </div>
           </div>
 
-          {/* Profile Image */}
+          {/* Profile Section */}
           <div className="flex justify-center lg:justify-end animate-slide-in-right">
-            <div className="relative">
+            <div className="relative space-y-6">
               <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-primary/30 shadow-glow animate-float hover:shadow-[0_0_40px_hsla(var(--primary),0.4)] transition-all duration-300">
                 <img 
                   src={dhruvPortrait} 
@@ -79,8 +91,23 @@ const Home = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-4 -right-4 glass-card px-4 py-2">
-                <span className="text-sm font-medium">Available for work</span>
+              
+              {/* Collaboration Card */}
+              <div className="glass-card p-6 space-y-4">
+                <h3 className="font-semibold">Collaboration</h3>
+                <p className="text-sm text-muted-foreground">
+                  I prioritize client collaboration, fostering open communication.
+                </p>
+                
+                <div className="space-y-2">
+                  <p className="text-sm font-medium">I'm very flexible with time zone communications</p>
+                  <div className="flex gap-2">
+                    <span>🇬🇧UK</span>
+                    <span>🇮🇳India</span>
+                    <span>🇺🇸USA</span>
+                  </div>
+                  <p className="text-xs text-muted-foreground">Remote, Based in Surat, India</p>
+                </div>
               </div>
             </div>
           </div>
