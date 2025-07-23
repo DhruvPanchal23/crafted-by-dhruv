@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Moon, Sun, Menu, X, ChevronDown } from "lucide-react";
@@ -14,9 +14,29 @@ const Navbar = () => {
   const [isDark, setIsDark] = useState(true);
   const location = useLocation();
 
+  useEffect(() => {
+    // Initialize theme based on system preference or localStorage
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const shouldBeDark = savedTheme ? savedTheme === 'dark' : systemPrefersDark;
+    
+    setIsDark(shouldBeDark);
+    if (shouldBeDark) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, []);
+
   const toggleTheme = () => {
-    setIsDark(!isDark);
-    document.documentElement.classList.toggle("dark");
+    const newTheme = !isDark;
+    setIsDark(newTheme);
+    localStorage.setItem('theme', newTheme ? 'dark' : 'light');
+    if (newTheme) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
   };
 
   const navItems = [
@@ -38,65 +58,67 @@ const Navbar = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="fixed top-0 w-full z-50 glass border-b border-border/20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <Link to="/" className="text-xl font-bold gradient-text">
-            Dhruv
-          </Link>
+    <nav className="fixed top-4 w-full z-50 px-4">
+      <div className="max-w-4xl mx-auto">
+        <div className="glass-card rounded-full px-6 py-3 border border-border/20">
+          <div className="flex justify-between items-center">
+            {/* Logo */}
+            <Link to="/" className="text-xl font-bold gradient-text">
+              AB
+            </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
+            {/* Desktop Navigation - Centered */}
+            <div className="hidden md:flex items-center space-x-6">
+              {navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.path}
+                  className={`px-3 py-1.5 rounded-full text-sm transition-all duration-300 ${
+                    isActive(item.path)
+                      ? "bg-primary text-primary-foreground"
+                      : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              ))}
+              
+              {/* More Dropdown */}
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="sm" className="gap-1 rounded-full">
+                    More <ChevronDown className="h-3 w-3" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="glass-card border-border/20">
+                  {moreItems.map((item) => (
+                    <DropdownMenuItem key={item.name} asChild>
+                      <Link to={item.path} className="w-full cursor-pointer">
+                        {item.name}
+                      </Link>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+
               <Link
-                key={item.name}
-                to={item.path}
-                className={`transition-colors duration-300 ${
-                  isActive(item.path)
-                    ? "text-primary font-medium"
-                    : "text-muted-foreground hover:text-foreground"
+                to="/connect"
+                className={`px-3 py-1.5 rounded-full text-sm transition-all duration-300 ${
+                  isActive("/connect")
+                    ? "bg-primary text-primary-foreground"
+                    : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
                 }`}
               >
-                {item.name}
+                Book a Call
               </Link>
-            ))}
-            
-            {/* More Dropdown */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm" className="gap-1">
-                  More <ChevronDown className="h-3 w-3" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="glass border-border/20">
-                {moreItems.map((item) => (
-                  <DropdownMenuItem key={item.name} asChild>
-                    <Link to={item.path} className="w-full cursor-pointer">
-                      {item.name}
-                    </Link>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
-
-            <Link
-              to="/connect"
-              className={`transition-colors duration-300 ${
-                isActive("/connect")
-                  ? "text-primary font-medium"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              Connect
-            </Link>
+            </div>
 
             {/* Theme Toggle */}
             <Button
               variant="ghost"
               size="icon"
               onClick={toggleTheme}
-              className="ml-4"
+              className="rounded-full"
             >
               {isDark ? (
                 <Sun className="h-4 w-4" />
@@ -104,42 +126,32 @@ const Navbar = () => {
                 <Moon className="h-4 w-4" />
               )}
             </Button>
-          </div>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center space-x-2">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleTheme}
-            >
-              {isDark ? (
-                <Sun className="h-4 w-4" />
-              ) : (
-                <Moon className="h-4 w-4" />
-              )}
-            </Button>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsOpen(!isOpen)}
-            >
-              {isOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
-            </Button>
+            {/* Mobile Menu Button */}
+            <div className="md:hidden flex items-center space-x-2">
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsOpen(!isOpen)}
+                className="rounded-full"
+              >
+                {isOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+              </Button>
+            </div>
           </div>
         </div>
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden py-4 space-y-2 border-t border-border/20">
+          <div className="md:hidden mt-4 glass-card rounded-2xl px-4 py-4 space-y-2 border border-border/20">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
-                className={`block px-3 py-2 rounded-md transition-colors duration-300 ${
+                className={`block px-3 py-2 rounded-full text-sm transition-all duration-300 ${
                   isActive(item.path)
-                    ? "text-primary bg-secondary/50"
-                    : "text-muted-foreground hover:text-foreground hover:bg-secondary/30"
+                    ? "bg-primary text-primary-foreground"
+                    : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
                 }`}
                 onClick={() => setIsOpen(false)}
               >
@@ -152,7 +164,7 @@ const Navbar = () => {
                 <Link
                   key={item.name}
                   to={item.path}
-                  className="block px-3 py-1 text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"
+                  className="block px-3 py-1 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-full transition-all duration-300"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}
@@ -161,14 +173,14 @@ const Navbar = () => {
             </div>
             <Link
               to="/connect"
-              className={`block px-3 py-2 rounded-md transition-colors duration-300 ${
+              className={`block px-3 py-2 rounded-full text-sm transition-all duration-300 ${
                 isActive("/connect")
-                  ? "text-primary bg-secondary/50"
-                  : "text-muted-foreground hover:text-foreground hover:bg-secondary/30"
+                  ? "bg-primary text-primary-foreground"
+                  : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
               }`}
               onClick={() => setIsOpen(false)}
             >
-              Connect
+              Book a Call
             </Link>
           </div>
         )}

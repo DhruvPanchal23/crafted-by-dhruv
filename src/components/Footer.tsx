@@ -10,16 +10,21 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-2xl font-bold mb-2 text-muted-foreground">MY SITE</h2>
-          <h3 className="text-4xl font-bold mb-2">
-            Explore, Connect
+          <h2 className="text-lg font-medium mb-4 text-muted-foreground tracking-wide">MY SITE</h2>
+          <h3 className="text-5xl md:text-6xl font-bold mb-2 leading-tight">
+            Explore, experiment
           </h3>
-          <h3 className="text-4xl font-bold mb-4">
-            <span className="text-purple-400">& Leave Your Mark</span>
+          <h3 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+            <span className="gradient-text italic">& say hello</span>
           </h3>
-          <p className="text-muted-foreground">
-            Explore, experiment <span className="text-purple-400">&</span> say hello
+          <p className="text-lg text-muted-foreground mb-8">
+            From concept to creation, let's make it happen!
           </p>
+          <Button variant="hero" size="hero" asChild className="mb-12">
+            <Link to="/connect">
+              Get In Touch <span className="ml-2">→</span>
+            </Link>
+          </Button>
         </div>
 
         {/* Cards Grid */}
@@ -101,12 +106,17 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Quotes */}
-        <div className="text-center mb-8 space-y-2">
-          <p className="text-lg font-medium gradient-text">"Bridging Imagination & Innovation"</p>
-          <p className="text-muted-foreground">"Let's Build What Matters"</p>
-          <p className="text-sm text-primary">"Open to Work"</p>
-          <p className="text-sm text-muted-foreground">"From concepts to crafted realities"</p>
+        {/* Professional Section */}
+        <div className="text-center mb-12 space-y-4">
+          <p className="text-2xl font-medium">I'm available for full-time roles & freelance projects.</p>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            I thrive on crafting dynamic web applications, and delivering seamless user experiences.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
+            <span className="px-3 py-1 bg-secondary/50 rounded-full">Open to Work</span>
+            <span className="px-3 py-1 bg-secondary/50 rounded-full">Full Stack Developer</span>
+            <span className="px-3 py-1 bg-secondary/50 rounded-full">Remote Available</span>
+          </div>
         </div>
 
         {/* Social Links */}

@@ -13,7 +13,7 @@ const Layout = ({ children }: LayoutProps) => {
       <ParticleBackground />
       <div className="relative z-10">
         <Navbar />
-        <main className="pt-16">
+        <main className="pt-24">
           {children}
         </main>
         <Footer />
