@@ -64,7 +64,7 @@ const Navbar = () => {
           <div className="flex justify-between items-center">
             {/* Logo */}
             <Link to="/" className="text-xl font-bold gradient-text">
-              AB
+              dhruv
             </Link>
 
             {/* Desktop Navigation - Centered */}
@@ -109,7 +109,7 @@ const Navbar = () => {
                     : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
                 }`}
               >
-                Book a Call
+                Connect
               </Link>
             </div>
 
@@ -180,7 +180,7 @@ const Navbar = () => {
               }`}
               onClick={() => setIsOpen(false)}
             >
-              Book a Call
+              Connect
             </Link>
           </div>
         )}

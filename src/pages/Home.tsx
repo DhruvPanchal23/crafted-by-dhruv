@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Heart, Globe, Code, Music } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
+import RotatingEarth from "@/components/RotatingEarth";
 
 const Home = () => {
   const [greeting, setGreeting] = useState("");
@@ -114,26 +115,48 @@ const Home = () => {
             </div>
 
             {/* Timezone Card */}
-            <div className="glass-card p-6 space-y-4">
-              <div className="flex items-center gap-3">
-                <Globe className="h-6 w-6 text-purple-500" />
-                <h3 className="text-lg font-semibold">I'm very flexible with time zone communications</h3>
+            <div className="glass-card p-8 space-y-6">
+              <div className="text-center space-y-4">
+                <h3 className="text-xl font-semibold text-white">I'm very flexible with time</h3>
+                <h3 className="text-xl font-semibold text-blue-400">zone communications</h3>
               </div>
-              <div className="flex items-center gap-6">
-                <div className="flex items-center gap-2">
-                  <span className="text-xl">🇬🇧</span>
-                  <span className="text-sm font-medium">UK</span>
+              
+              <div className="flex justify-center">
+                <RotatingEarth />
+              </div>
+              
+              <div className="flex justify-center gap-4">
+                <div className="glass-card px-3 py-2 rounded-lg">
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm">🇬🇧</span>
+                    <span className="text-sm font-medium text-white">UK</span>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-xl">🇮🇳</span>
-                  <span className="text-sm font-medium">India</span>
+                <div className="glass-card px-3 py-2 rounded-lg bg-blue-500/20">
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm">🇮🇳</span>
+                    <span className="text-sm font-medium text-blue-400">India</span>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-xl">🇺🇸</span>
-                  <span className="text-sm font-medium">USA</span>
+                <div className="glass-card px-3 py-2 rounded-lg">
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm">🇺🇸</span>
+                    <span className="text-sm font-medium text-white">USA</span>
+                  </div>
                 </div>
               </div>
-              <p className="text-xs text-muted-foreground">Remote, Based in Surat, India</p>
+              
+              <div className="text-center">
+                <div className="flex items-center justify-center gap-2 mb-2">
+                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                  <span className="text-sm text-muted-foreground">Remote</span>
+                </div>
+                <p className="text-sm font-medium text-white">India</p>
+                <Button variant="outline" size="sm" className="mt-4 rounded-full">
+                  Connect now
+                  <ArrowRight className="h-3 w-3 ml-2" />
+                </Button>
+              </div>
             </div>
 
             {/* Tech Stack Card */}
