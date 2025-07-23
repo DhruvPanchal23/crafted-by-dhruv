@@ -4,6 +4,8 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Heart, Globe, Code, Music } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import RotatingEarth from "@/components/RotatingEarth";
+import dhruvPortrait from "@/assets/dhruv-portrait.jpg";
+import ParticleBackground from "@/components/ParticleBackground"; // Added ParticleBackground import
 
 const Home = () => {
   const [greeting, setGreeting] = useState("");
@@ -48,42 +50,49 @@ const Home = () => {
 
   return (
     <div className="min-h-screen relative">
-      {/* Hero Section */}
-      <section className="container mx-auto px-4 py-20 text-center">
-        <div className="space-y-8 max-w-5xl mx-auto">
-          {/* Greeting Badge */}
-          <div className="inline-flex items-center gap-2 glass-card px-4 py-2 rounded-full">
-            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-            <span className="text-sm font-medium">{greeting}</span>
-            <span className="text-sm">✨</span>
-          </div>
-          
-          {/* Main Heading */}
-          <div className="space-y-4">
-            <h1 className="text-6xl lg:text-8xl font-bold leading-tight tracking-tight">
-              <span className="text-white">FROM PIXELS TO </span>
-              <span className="gradient-text-animated">PRODUCTS</span>
-              <br />
-              <span className="text-white">LET'S MAKE IT </span>
-              <span className="gradient-text-animated">HAPPEN!</span>
-            </h1>
-            
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              I'm available for full-time roles & freelance projects.
-            </p>
-            
-            <p className="text-lg text-muted-foreground">
-              Crafting experiences that remember you back.
-            </p>
-          </div>
+      {/* Animated background particles (optional) */}
+      <ParticleBackground />
 
-          {/* CTA Button */}
-          <div className="pt-4">
-            <Button variant="premium" size="lg" className="group px-8 py-4 text-lg rounded-full">
-              Connect With Me
-              <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform ml-2" />
-            </Button>
-          </div>
+      {/* Greeting badge with fade-in */}
+      <div className="inline-flex items-center gap-2 glass-card px-4 py-2 rounded-full animate-fade-in">
+        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+        <span className="text-sm font-medium">{greeting}</span>
+        <span className="text-sm">✨</span>
+      </div>
+
+      {/* Hero Section */}
+      <section className="relative min-h-[70vh] flex flex-col items-center justify-center text-center px-4">
+        {/* Soft background glow */}
+        <div className="absolute inset-0 -z-10 flex items-end justify-center pointer-events-none">
+          <div className="w-[90vw] h-[40vh] rounded-full bg-gradient-to-t from-purple-700/40 to-transparent blur-3xl"></div>
+        </div>
+
+        {/* Headline */}
+        <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-4">
+          Pixels. Logic. Story.
+        </h1>
+
+        {/* Subheadline */}
+        <div className="mb-6">
+          <span className="text-xl md:text-2xl text-muted-foreground font-medium">I craft digital experience you'll never forget.</span>
+        </div>
+
+        {/* Avatar, name, and role */}
+        <div className="flex items-center justify-center gap-3 mb-8">
+          <span className="text-lg text-muted-foreground">Hello, I'm <b>Dhruv Panchal</b></span>
+          <img src={dhruvPortrait} alt="Dhruv Panchal" className="w-8 h-8 rounded-full border-2 border-primary object-cover" />
+          <span className="text-lg text-muted-foreground">Developer & Designer</span>
+        </div>
+
+        {/* CTA and contact */}
+        <div className="flex flex-col md:flex-row items-center justify-center gap-4">
+          <Button variant="premium" size="lg" className="px-8 py-4 text-lg rounded-full">
+            Let's Connect <ArrowRight className="h-5 w-5 ml-2" />
+          </Button>
+          <span className="text-muted-foreground flex items-center gap-2">
+            <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M16 12H8m8 0a4 4 0 11-8 0 4 4 0 018 0zm0 0v4m0-4V8" /></svg>
+            dhruvpanchal.dev@gmail.com
+          </span>
         </div>
       </section>
 
