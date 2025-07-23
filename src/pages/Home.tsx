@@ -47,7 +47,7 @@ const Home = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen relative">
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-20 text-center">
         <div className="space-y-8 max-w-5xl mx-auto">
