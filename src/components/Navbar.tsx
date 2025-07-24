@@ -63,7 +63,7 @@ const Navbar = () => {
         <div className="glass-card rounded-full px-6 py-3 border border-border/20">
           <div className="flex justify-between items-center">
             {/* Logo */}
-            <Link to="/" className="text-xl font-bold gradient-text">
+            <Link to="/" className="text-xl font-bold text-primary hover:text-primary/80 transition-colors">
               dhruv
             </Link>
 
