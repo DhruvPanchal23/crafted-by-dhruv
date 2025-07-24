@@ -53,179 +53,230 @@ const Home = () => {
       {/* Animated background particles (optional) */}
       <ParticleBackground />
 
-      {/* Greeting badge with fade-in */}
-      <div className="inline-flex items-center gap-2 glass-card px-4 py-2 rounded-full animate-fade-in">
-        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-        <span className="text-sm font-medium">{greeting}</span>
+      {/* Greeting badge with enhanced glow */}
+      <div className="inline-flex items-center gap-2 glass-card px-4 py-2 rounded-full animate-fade-in pulse-glow">
+        <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
+        <span className="text-sm font-medium text-glow">{greeting}</span>
         <span className="text-sm">✨</span>
       </div>
 
-      {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex flex-col items-center justify-center text-center px-4">
-        {/* Soft background glow */}
-        <div className="absolute inset-0 -z-10 flex items-end justify-center pointer-events-none">
-          <div className="w-[90vw] h-[40vh] rounded-full bg-gradient-to-t from-purple-700/40 to-transparent blur-3xl"></div>
+      {/* Hero Section with Enhanced Design */}
+      <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-4">
+        {/* Multiple layered glows */}
+        <div className="absolute inset-0 -z-10 flex items-center justify-center pointer-events-none">
+          <div className="w-[80vw] h-[60vh] rounded-full bg-gradient-to-t from-primary/30 via-secondary/20 to-transparent blur-3xl float-slow"></div>
+          <div className="absolute w-[60vw] h-[40vh] rounded-full bg-gradient-to-b from-accent/20 via-tertiary/15 to-transparent blur-2xl"></div>
         </div>
 
-        {/* Headline */}
-        <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-4">
+        {/* Enhanced Headline with Gradient */}
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight mb-6 text-glow-primary gradient-text-flow">
           Pixels. Logic. Story.
         </h1>
 
-        {/* Subheadline */}
-        <div className="mb-6">
-          <span className="text-xl md:text-2xl text-muted-foreground font-medium">I craft digital experience you'll never forget.</span>
+        {/* Enhanced Subheadline */}
+        <div className="mb-8">
+          <span className="text-xl md:text-3xl text-foreground/90 font-medium text-glow">
+            I craft digital experiences you'll never forget.
+          </span>
         </div>
 
-        {/* Avatar, name, and role */}
-        <div className="flex items-center justify-center gap-3 mb-8">
-          <span className="text-lg text-muted-foreground">Hello, I'm <b>Dhruv Panchal</b></span>
-          <img src={dhruvPortrait} alt="Dhruv Panchal" className="w-8 h-8 rounded-full border-2 border-primary object-cover" />
-          <span className="text-lg text-muted-foreground">Developer & Designer</span>
+        {/* Enhanced Avatar and intro */}
+        <div className="flex items-center justify-center gap-4 mb-10 glass-card px-6 py-3 rounded-full card-hover">
+          <span className="text-lg text-foreground/80">Hello, I'm</span>
+          <span className="text-xl font-bold gradient-text-flow">Dhruv Panchal</span>
+          <img 
+            src={dhruvPortrait} 
+            alt="Dhruv Panchal" 
+            className="w-10 h-10 rounded-full border-2 border-primary/50 object-cover shadow-lg"
+          />
+          <span className="text-lg text-foreground/80">Developer & Designer</span>
         </div>
 
-        {/* CTA and contact */}
-        <div className="flex flex-col md:flex-row items-center justify-center gap-4">
-          <Button variant="premium" size="lg" className="px-8 py-4 text-lg rounded-full">
+        {/* Enhanced CTA Section */}
+        <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-8">
+          <Button 
+            variant="default" 
+            size="lg" 
+            className="px-10 py-5 text-lg rounded-full button-magnetic btn-glow bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+          >
             Let's Connect <ArrowRight className="h-5 w-5 ml-2" />
           </Button>
-          <span className="text-muted-foreground flex items-center gap-2">
-            <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M16 12H8m8 0a4 4 0 11-8 0 4 4 0 018 0zm0 0v4m0-4V8" /></svg>
-            dhruvpanchal.dev@gmail.com
-          </span>
+          <div className="glass-card px-4 py-2 rounded-full flex items-center gap-2 card-hover">
+            <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
+            <span className="text-foreground/80 text-sm">Available for projects</span>
+          </div>
+        </div>
+
+        {/* Contact Info */}
+        <div className="glass-card px-6 py-3 rounded-full flex items-center gap-3 card-hover">
+          <svg className="h-4 w-4 text-secondary" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M16 12H8m8 0a4 4 0 11-8 0 4 4 0 018 0zm0 0v4m0-4V8" />
+          </svg>
+          <span className="text-foreground/80 text-sm">dhruvpanchal.dev@gmail.com</span>
         </div>
       </section>
 
-      {/* Scrolling Skills Banner */}
-      <div className="border-y border-border/50 py-4 overflow-hidden">
-        <div className="flex animate-scroll whitespace-nowrap">
+      {/* Enhanced Scrolling Skills Banner */}
+      <div className="section-bg-2 border-y border-primary/20 py-8 overflow-hidden relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-secondary/5 to-accent/5"></div>
+        <div className="flex animate-scroll whitespace-nowrap relative z-10">
           {[...scrollingSkills, ...scrollingSkills].map((skill, index) => (
-            <span key={index} className="px-8 text-muted-foreground text-lg">
-              {skill} •
+            <span key={index} className="px-8 text-foreground/80 text-xl font-medium text-glow">
+              {skill} <span className="text-primary">•</span>
             </span>
           ))}
         </div>
       </div>
 
-      {/* Main Content Grid */}
-      <section className="container mx-auto px-4 py-16">
-        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {/* Left Column */}
-          <div className="space-y-6">
-            {/* Collaboration Card */}
-            <div className="glass-card p-6 space-y-4">
-              <div className="flex items-center gap-3">
-                <Heart className="h-6 w-6 text-purple-500" />
-                <h3 className="text-lg font-semibold">COLLABORATION</h3>
+      {/* Enhanced Main Content Grid */}
+      <section className="section-bg-3 py-24 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
+            {/* Left Column */}
+            <div className="space-y-8 scroll-slide-left">
+              {/* Enhanced Collaboration Card */}
+              <div className="glass-card p-8 space-y-6 card-hover">
+                <div className="flex items-center gap-4">
+                  <div className="p-3 rounded-full bg-tertiary/20 text-tertiary">
+                    <Heart className="h-8 w-8" />
+                  </div>
+                  <div>
+                    <span className="text-sm font-medium text-tertiary/80 tracking-wider">COLLABORATION</span>
+                    <h3 className="text-2xl font-bold text-glow">Working Together</h3>
+                  </div>
+                </div>
+                <p className="text-foreground/70 text-lg leading-relaxed">
+                  I prioritize client collaboration, fostering open communication and ensuring your vision comes to life through every iteration.
+                </p>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
+                  <span className="text-success text-sm font-medium">Always responsive</span>
+                </div>
               </div>
-              <p className="text-muted-foreground">
-                I prioritize client collaboration, fostering open communication.
-              </p>
+
+              {/* Enhanced Timezone Card */}
+              <div className="glass-card p-8 space-y-6 card-hover">
+                <div className="text-center space-y-4">
+                  <span className="text-sm font-medium text-secondary/80 tracking-wider">GLOBAL REACH</span>
+                  <h3 className="text-2xl font-bold text-glow">I'm very flexible with time</h3>
+                  <h3 className="text-2xl font-bold text-secondary gradient-text-flow">zone communications</h3>
+                </div>
+                
+                <div className="flex justify-center py-4">
+                  <RotatingEarth />
+                </div>
+                
+                <div className="flex justify-center gap-4">
+                  <div className="glass-card px-4 py-3 rounded-lg card-hover">
+                    <div className="flex items-center gap-2">
+                      <span className="text-lg">🇬🇧</span>
+                      <span className="text-sm font-medium text-foreground">UK</span>
+                    </div>
+                  </div>
+                  <div className="glass-card px-4 py-3 rounded-lg bg-secondary/20 border-secondary/30 card-hover">
+                    <div className="flex items-center gap-2">
+                      <span className="text-lg">🇮🇳</span>
+                      <span className="text-sm font-medium text-secondary">India</span>
+                    </div>
+                  </div>
+                  <div className="glass-card px-4 py-3 rounded-lg card-hover">
+                    <div className="flex items-center gap-2">
+                      <span className="text-lg">🇺🇸</span>
+                      <span className="text-sm font-medium text-foreground">USA</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="text-center">
+                  <div className="flex items-center justify-center gap-2 mb-3">
+                    <div className="w-3 h-3 bg-success rounded-full animate-pulse"></div>
+                    <span className="text-sm text-foreground/70">Currently in</span>
+                  </div>
+                  <p className="text-lg font-semibold text-glow mb-4">India</p>
+                  <Button variant="outline" size="sm" className="rounded-full button-magnetic">
+                    Connect now
+                    <ArrowRight className="h-4 w-4 ml-2" />
+                  </Button>
+                </div>
+              </div>
+
+              {/* Enhanced Tech Stack Card */}
+              <div className="glass-card p-8 space-y-6 card-hover">
+                <div className="flex items-center gap-4">
+                  <div className="p-3 rounded-full bg-accent/20 text-accent">
+                    <Code className="h-8 w-8" />
+                  </div>
+                  <div>
+                    <span className="text-sm font-medium text-accent/80 tracking-wider">TECHNOLOGY</span>
+                    <h3 className="text-2xl font-bold text-glow">Cutting-edge Stack</h3>
+                  </div>
+                </div>
+                <div className="grid grid-cols-3 gap-3">
+                  {techStack.map((tech) => (
+                    <div
+                      key={tech.name}
+                      className="glass-card p-3 rounded-xl text-center card-hover border border-primary/20 hover:border-primary/50"
+                    >
+                      <span className="text-sm font-medium text-foreground">{tech.name}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
 
-            {/* Timezone Card */}
-            <div className="glass-card p-8 space-y-6">
-              <div className="text-center space-y-4">
-                <h3 className="text-xl font-semibold text-white">I'm very flexible with time</h3>
-                <h3 className="text-xl font-semibold text-blue-400">zone communications</h3>
-              </div>
-              
-              <div className="flex justify-center">
-                <RotatingEarth />
-              </div>
-              
-              <div className="flex justify-center gap-4">
-                <div className="glass-card px-3 py-2 rounded-lg">
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm">🇬🇧</span>
-                    <span className="text-sm font-medium text-white">UK</span>
-                  </div>
+            {/* Right Column */}
+            <div className="space-y-8 scroll-slide-right">
+              {/* Enhanced Profile Card */}
+              <div className="glass-card p-8 text-center space-y-6 card-hover">
+                <div className="w-20 h-20 bg-gradient-to-br from-primary via-secondary to-accent rounded-full flex items-center justify-center mx-auto pulse-glow">
+                  <span className="text-white text-3xl font-bold text-glow">D</span>
                 </div>
-                <div className="glass-card px-3 py-2 rounded-lg bg-blue-500/20">
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm">🇮🇳</span>
-                    <span className="text-sm font-medium text-blue-400">India</span>
-                  </div>
-                </div>
-                <div className="glass-card px-3 py-2 rounded-lg">
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm">🇺🇸</span>
-                    <span className="text-sm font-medium text-white">USA</span>
+                <div>
+                  <h3 className="text-2xl font-bold mb-4 text-glow">Let's work together</h3>
+                  <p className="text-foreground/70 mb-6">Ready to bring your next project to life</p>
+                  <div className="glass-card px-6 py-3 inline-flex items-center gap-3 rounded-full card-hover">
+                    <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
+                    <span className="text-sm font-medium">dhruvpanchal.dev@gmail.com</span>
                   </div>
                 </div>
               </div>
-              
-              <div className="text-center">
-                <div className="flex items-center justify-center gap-2 mb-2">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                  <span className="text-sm text-muted-foreground">Remote</span>
+
+              {/* Enhanced Inside Scoop Card */}
+              <div className="glass-card p-8 space-y-6 card-hover">
+                <div className="flex items-center gap-4">
+                  <div className="p-3 rounded-full bg-quaternary/20 text-quaternary">
+                    <div className="w-6 h-6 flex items-center justify-center">
+                      <span className="text-lg">🚀</span>
+                    </div>
+                  </div>
+                  <div>
+                    <span className="text-sm font-medium text-quaternary/80 tracking-wider">THE INSIDE SCOOP</span>
+                    <h3 className="text-xl font-bold text-glow">Current Project</h3>
+                  </div>
                 </div>
-                <p className="text-sm font-medium text-white">India</p>
-                <Button variant="outline" size="sm" className="mt-4 rounded-full">
-                  Connect now
-                  <ArrowRight className="h-3 w-3 ml-2" />
+                <p className="text-lg text-foreground/80">Currently building a custom portfolio platform with cutting-edge animations</p>
+                <Button variant="outline" className="w-full group button-magnetic">
+                  View Recent Work
+                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform ml-2" />
                 </Button>
               </div>
-            </div>
 
-            {/* Tech Stack Card */}
-            <div className="glass-card p-6 space-y-6">
-              <div className="flex items-center gap-3">
-                <Code className="h-6 w-6 text-purple-500" />
-                <h3 className="text-lg font-semibold">Passionate about cutting-edge technologies</h3>
-              </div>
-              <div className="grid grid-cols-3 gap-3">
-                {techStack.map((tech) => (
-                  <div
-                    key={tech.name}
-                    className={`${tech.color} rounded-lg px-3 py-2 text-white text-sm font-medium text-center`}
-                  >
-                    {tech.name}
+              {/* Enhanced Standout Card */}
+              <div className="glass-card p-8 space-y-6 card-hover">
+                <div className="flex items-center gap-4">
+                  <div className="p-3 rounded-full bg-primary/20 text-primary">
+                    <div className="w-6 h-6 flex items-center justify-center">
+                      <span className="text-lg">✨</span>
+                    </div>
                   </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Websites Card */}
-            <div className="glass-card p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-6 h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded flex items-center justify-center">
-                  <span className="text-white text-xs">✨</span>
+                  <div>
+                    <span className="text-sm font-medium text-primary/80 tracking-wider">IMPACT</span>
+                    <h3 className="text-xl font-bold text-glow">Stand Out</h3>
+                  </div>
                 </div>
-                <h3 className="text-lg font-semibold">Websites that stand out and make a difference</h3>
+                <p className="text-lg text-foreground/80">Websites that make a difference and leave lasting impressions</p>
               </div>
-            </div>
-          </div>
-
-          {/* Right Column */}
-          <div className="space-y-6">
-            {/* Profile Card */}
-            <div className="glass-card p-6 text-center space-y-4">
-              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto">
-                <span className="text-white text-2xl font-bold">D</span>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-2">Let's work together on your next project</h3>
-                <div className="glass-card px-4 py-2 inline-flex items-center gap-2 rounded-lg">
-                  <span className="text-sm">✉️</span>
-                  <span className="text-sm font-medium">dhruvpanchal.dev@gmail.com</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Inside Scoop Card */}
-            <div className="glass-card p-6 space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="w-6 h-6 bg-purple-500 rounded flex items-center justify-center">
-                  <span className="text-white text-xs">🔗</span>
-                </div>
-                <span className="text-sm font-medium text-muted-foreground">THE INSIDE SCOOP</span>
-              </div>
-              <h3 className="text-xl font-semibold">Currently building a custom portfolio platform</h3>
-              <Button variant="outline" className="w-full group">
-                View Recent Work
-                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform ml-2" />
-              </Button>
             </div>
           </div>
         </div>
