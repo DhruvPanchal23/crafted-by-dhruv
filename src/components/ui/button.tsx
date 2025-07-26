@@ -15,7 +15,7 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 magnetic-btn",
         ghost: "hover:bg-accent hover:text-accent-foreground magnetic-btn",
         link: "text-primary underline-offset-4 hover:underline",
-        hero: "bg-gradient-primary text-primary-foreground hover:opacity-90 shadow-glow magnetic-btn",
+        hero: "bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:opacity-90 shadow-glow magnetic-btn",
         premium: "bg-gradient-to-r from-primary to-accent text-white shadow-glow magnetic-btn hover:scale-105",
       },
       size: {
