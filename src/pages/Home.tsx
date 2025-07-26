@@ -212,7 +212,7 @@ const Home = () => {
                     <h3 className="text-2xl font-bold text-glow">Cutting-edge Stack</h3>
                   </div>
                 </div>
-                <div className="grid grid-cols-3 gap-3">
+                <div className="grid grid-cols-3 gap-3 tech-stack-grid">
                   {techStack.map((tech) => (
                     <div
                       key={tech.name}
