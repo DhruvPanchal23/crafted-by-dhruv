@@ -1,356 +1,383 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Heart, Globe, Code, Music } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { 
+  Github, 
+  Linkedin, 
+  Mail, 
+  Phone,
+  MapPin, 
+  ExternalLink,
+  Code, 
+  Palette,
+  Database,
+  Smartphone,
+  Figma,
+  Chrome,
+  CheckCircle
+} from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
-import RotatingEarth from "@/components/RotatingEarth";
 import dhruvPortrait from "@/assets/dhruv-portrait.jpg";
-import ParticleBackground from "@/components/ParticleBackground"; // Added ParticleBackground import
 
 const Home = () => {
-  const [greeting, setGreeting] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: ""
+  });
 
-  useEffect(() => {
-    const hour = new Date().getHours();
-    if (hour < 12) setGreeting("Good Morning");
-    else if (hour < 17) setGreeting("Good Afternoon");
-    else if (hour < 21) setGreeting("Good Evening");
-    else setGreeting("Good Night");
-  }, []);
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
 
-  const techStack = [
-    { name: "ReactJS", color: "bg-blue-600" },
-    { name: "NextJS", color: "bg-gray-700" },
-    { name: "TypeScript", color: "bg-blue-700" },
-    { name: "TailwindCSS", color: "bg-teal-600" },
-    { name: "NodeJS", color: "bg-green-600" },
-    { name: "ExpressJS", color: "bg-gray-600" },
-    { name: "MongoDB", color: "bg-green-700" },
-    { name: "Git", color: "bg-orange-700" },
-    { name: "GitHub", color: "bg-purple-700" },
-    { name: "Vercel", color: "bg-gray-500" },
-    { name: "Figma", color: "bg-pink-600" },
-    { name: "Adobe", color: "bg-red-700" }
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle form submission here
+    console.log("Form submitted:", formData);
+    // Reset form
+    setFormData({ name: "", email: "", message: "" });
+  };
+
+  // Skills data with proficiency levels
+  const skills = [
+    { name: "JavaScript", level: 95, icon: Code },
+    { name: "React", level: 90, icon: Code },
+    { name: "Node.js", level: 85, icon: Database },
+    { name: "Python", level: 80, icon: Code },
+    { name: "TypeScript", level: 85, icon: Code },
+    { name: "Figma", level: 90, icon: Figma },
+    { name: "Adobe XD", level: 85, icon: Palette },
+    { name: "UI/UX Design", level: 92, icon: Smartphone }
   ];
 
-  const scrollingSkills = [
-    "UI/UX Design",
-    "Full Stack Development", 
-    "Frontend Development",
-    "Backend Development",
-    "React Specialist",
-    "TypeScript Expert",
-    "Modern Web Apps",
-    "Responsive Design",
-    "API Development",
-    "Database Design",
-    "Cloud Solutions",
-    "Performance Optimization"
+  // Projects data
+  const projects = [
+    {
+      id: 1,
+      title: "E-Commerce Platform",
+      description: "A full-stack e-commerce solution with React, Node.js, and PostgreSQL featuring user authentication, payment integration, and admin dashboard.",
+      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
+      tech: ["React", "Node.js", "PostgreSQL", "Stripe"],
+      liveUrl: "#",
+      githubUrl: "#"
+    },
+    {
+      id: 2,
+      title: "Task Management App",
+      description: "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
+      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop",
+      tech: ["React", "Firebase", "Material-UI", "Socket.io"],
+      liveUrl: "#",
+      githubUrl: "#"
+    },
+    {
+      id: 3,
+      title: "Portfolio Website",
+      description: "A responsive portfolio website showcasing UI/UX design skills with modern animations and optimized performance.",
+      image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&fit=crop",
+      tech: ["React", "Tailwind CSS", "Framer Motion", "Vite"],
+      liveUrl: "#",
+      githubUrl: "#"
+    },
+    {
+      id: 4,
+      title: "Weather Dashboard",
+      description: "A weather application with location-based forecasts, interactive maps, and beautiful data visualizations.",
+      image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=600&h=400&fit=crop",
+      tech: ["Vue.js", "Chart.js", "OpenWeather API", "Tailwind"],
+      liveUrl: "#",
+      githubUrl: "#"
+    }
   ];
 
   return (
-    <div className="min-h-screen relative">
-      {/* Animated background particles (optional) */}
-      <ParticleBackground />
-
-      {/* Greeting badge with enhanced glow */}
-      <div className="inline-flex items-center gap-2 glass-card px-4 py-2 rounded-full animate-fade-in pulse-glow">
-        <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
-        <span className="text-sm font-medium text-glow">{greeting}</span>
-        <span className="text-sm">✨</span>
-      </div>
-
-      {/* Hero Section with Enhanced Design */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-4">
-        {/* Multiple layered glows */}
-        <div className="absolute inset-0 -z-10 flex items-center justify-center pointer-events-none">
-          <div className="w-[80vw] h-[60vh] rounded-full bg-gradient-to-t from-primary/30 via-secondary/20 to-transparent blur-3xl float-slow"></div>
-          <div className="absolute w-[60vw] h-[40vh] rounded-full bg-gradient-to-b from-accent/20 via-tertiary/15 to-transparent blur-2xl"></div>
-        </div>
-
-        {/* Enhanced Headline with Gradient */}
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight mb-6 text-glow-primary gradient-text-flow">
-          Pixels. Logic. Story.
-        </h1>
-
-        {/* Enhanced Subheadline */}
-        <div className="mb-8">
-          <span className="text-xl md:text-3xl text-foreground/90 font-medium text-glow">
-            I craft digital experiences you'll never forget.
-          </span>
-        </div>
-
-        {/* Enhanced Avatar and intro */}
-        <div className="flex items-center justify-center gap-4 mb-10 glass-card px-6 py-3 rounded-full card-hover">
-          <span className="text-lg text-foreground/80">Hello, I'm</span>
-          <span className="text-xl font-bold gradient-text-flow">Dhruv Panchal</span>
-          <img 
-            src={dhruvPortrait} 
-            alt="Dhruv Panchal" 
-            className="w-10 h-10 rounded-full border-2 border-primary/50 object-cover shadow-lg"
-          />
-          <span className="text-lg text-foreground/80">Developer & Designer</span>
-        </div>
-
-        {/* Enhanced CTA Section */}
-        <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-8">
-          <Button 
-            variant="default" 
-            size="lg" 
-            className="px-10 py-5 text-lg rounded-full button-magnetic btn-glow bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
-          >
-            Let's Connect <ArrowRight className="h-5 w-5 ml-2" />
-          </Button>
-          <div className="glass-card px-4 py-2 rounded-full flex items-center gap-2 card-hover">
-            <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
-            <span className="text-foreground/80 text-sm">Available for projects</span>
-          </div>
-        </div>
-
-        {/* Contact Info */}
-        <div className="glass-card px-6 py-3 rounded-full flex items-center gap-3 card-hover">
-          <svg className="h-4 w-4 text-secondary" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M16 12H8m8 0a4 4 0 11-8 0 4 4 0 018 0zm0 0v4m0-4V8" />
-          </svg>
-          <span className="text-foreground/80 text-sm">dhruvpanchal.dev@gmail.com</span>
+    <div className="min-h-screen bg-background">
+      {/* Hero Section */}
+      <section className="hero-gradient min-h-screen flex items-center justify-center text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="container mx-auto px-4 relative z-10 text-center">
+          <ScrollReveal>
+            <h1 className="heading-xl mb-6 text-white">
+              Dhruv Panchal – Crafting User-Centric Web Experiences
+            </h1>
+          </ScrollReveal>
+          
+          <ScrollReveal delay={200}>
+            <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-2xl mx-auto">
+              Full Stack Developer & UI/UX Designer
+            </p>
+          </ScrollReveal>
+          
+          <ScrollReveal delay={400}>
+            <Button 
+              size="lg" 
+              className="btn-primary text-lg px-8 py-4"
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Contact Me
+            </Button>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* Enhanced Scrolling Skills Banner */}
-      <div className="section-bg-2 border-y border-primary/20 py-8 overflow-hidden relative">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-secondary/5 to-accent/5"></div>
-        <div className="flex animate-scroll whitespace-nowrap relative z-10">
-          {[...scrollingSkills, ...scrollingSkills].map((skill, index) => (
-            <span key={index} className="px-8 text-foreground/80 text-xl font-medium text-glow">
-              {skill} <span className="text-primary">•</span>
-            </span>
-          ))}
+      {/* About Section */}
+      <section id="about" className="py-20 section-bg">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <ScrollReveal>
+              <h2 className="heading-lg text-center mb-16 text-foreground">About Me</h2>
+            </ScrollReveal>
+            
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <ScrollReveal className="slide-in-left">
+                <div className="text-center md:text-left">
+                  <Avatar className="w-48 h-48 mx-auto md:mx-0 mb-6 border-4 border-primary/20">
+                    <AvatarImage src={dhruvPortrait} alt="Dhruv Panchal" />
+                    <AvatarFallback>DP</AvatarFallback>
+                  </Avatar>
+                </div>
+              </ScrollReveal>
+              
+              <ScrollReveal className="slide-in-right">
+                <div>
+                  <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+                    I'm a passionate Full Stack Developer and UI/UX Designer with expertise in creating 
+                    seamless digital experiences. With a strong foundation in both frontend and backend 
+                    technologies, I bring ideas to life through clean, efficient code and user-centered design.
+                  </p>
+                  <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+                    My technical expertise spans JavaScript, React, Node.js, Python, and modern design tools 
+                    like Figma and Adobe XD. I'm committed to delivering high-quality solutions that not 
+                    only look great but also provide exceptional user experiences.
+                  </p>
+                  <div className="flex flex-wrap gap-3">
+                    {["JavaScript", "React", "Node.js", "Python", "Figma", "Adobe XD"].map((tech) => (
+                      <Badge key={tech} variant="secondary" className="px-3 py-1">
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              </ScrollReveal>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
 
-      {/* Enhanced Main Content Grid */}
-      <section className="section-bg-3 py-24 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
-            {/* Left Column */}
-            <div className="space-y-8 scroll-slide-left">
-              {/* Enhanced Collaboration Card */}
-              <div className="glass-card p-8 space-y-6 card-hover">
-                <div className="flex items-center gap-4">
-                  <div className="p-3 rounded-full bg-tertiary/20 text-tertiary">
-                    <Heart className="h-8 w-8" />
+      {/* Projects Section */}
+      <section id="projects" className="py-20">
+        <div className="container mx-auto px-4">
+          <ScrollReveal>
+            <h2 className="heading-lg text-center mb-16 text-foreground">Featured Projects</h2>
+          </ScrollReveal>
+          
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {projects.map((project, index) => (
+              <ScrollReveal key={project.id} delay={index * 100}>
+                <Card className="project-card">
+                  <div className="relative overflow-hidden rounded-t-lg">
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="project-image w-full h-48 object-cover"
+                    />
                   </div>
-                  <div>
-                    <span className="text-sm font-medium text-tertiary/80 tracking-wider">COLLABORATION</span>
-                    <h3 className="text-2xl font-bold text-glow">Working Together</h3>
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-semibold mb-3 text-foreground">{project.title}</h3>
+                    <p className="text-muted-foreground mb-4 leading-relaxed">{project.description}</p>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.tech.map((tech) => (
+                        <Badge key={tech} variant="outline" className="text-xs">
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                    <div className="flex gap-3">
+                      <Button size="sm" className="btn-primary">
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        Live Demo
+                      </Button>
+                      <Button size="sm" variant="outline" className="btn-outline">
+                        <Github className="w-4 h-4 mr-2" />
+                        Code
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section id="skills" className="py-20 section-bg">
+        <div className="container mx-auto px-4">
+          <ScrollReveal>
+            <h2 className="heading-lg text-center mb-16 text-foreground">Skills & Expertise</h2>
+          </ScrollReveal>
+          
+          <div className="max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8">
+              {skills.map((skill, index) => (
+                <ScrollReveal key={skill.name} delay={index * 50}>
+                  <div className="flex items-center gap-4 p-4 card">
+                    <div className="p-3 bg-primary/10 rounded-lg">
+                      <skill.icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex justify-between items-center mb-2">
+                        <span className="font-medium text-foreground">{skill.name}</span>
+                        <span className="text-sm text-muted-foreground">{skill.level}%</span>
+                      </div>
+                      <div className="skill-bar h-2">
+                        <div 
+                          className="skill-progress"
+                          style={{ width: `${skill.level}%` }}
+                        ></div>
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <p className="text-foreground/70 text-lg leading-relaxed">
-                  I prioritize client collaboration, fostering open communication and ensuring your vision comes to life through every iteration.
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-20">
+        <div className="container mx-auto px-4">
+          <ScrollReveal>
+            <h2 className="heading-lg text-center mb-16 text-foreground">Get In Touch</h2>
+          </ScrollReveal>
+          
+          <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
+            <ScrollReveal className="slide-in-left">
+              <div>
+                <h3 className="text-2xl font-semibold mb-6 text-foreground">Let's Work Together</h3>
+                <p className="text-muted-foreground mb-8 leading-relaxed">
+                  I'm always interested in new opportunities and exciting projects. 
+                  Whether you have a question or just want to say hi, feel free to reach out!
                 </p>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
-                  <span className="text-success text-sm font-medium">Always responsive</span>
-                </div>
-              </div>
-
-              {/* Enhanced Timezone Card */}
-              <div className="glass-card p-8 space-y-6 card-hover">
-                <div className="text-center space-y-4">
-                  <span className="text-sm font-medium text-secondary/80 tracking-wider">GLOBAL REACH</span>
-                  <h3 className="text-2xl font-bold text-glow">I'm very flexible with time</h3>
-                  <h3 className="text-2xl font-bold text-secondary gradient-text-flow">zone communications</h3>
-                </div>
                 
-                <div className="flex justify-center py-4">
-                  <RotatingEarth />
-                </div>
-                
-                <div className="flex justify-center gap-4">
-                  <div className="glass-card px-4 py-3 rounded-lg card-hover">
-                    <div className="flex items-center gap-2">
-                      <span className="text-lg">🇬🇧</span>
-                      <span className="text-sm font-medium text-foreground">UK</span>
-                    </div>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    <Mail className="w-5 h-5 text-primary" />
+                    <span className="text-foreground">dhruv@example.com</span>
                   </div>
-                  <div className="glass-card px-4 py-3 rounded-lg bg-secondary/20 border-secondary/30 card-hover">
-                    <div className="flex items-center gap-2">
-                      <span className="text-lg">🇮🇳</span>
-                      <span className="text-sm font-medium text-secondary">India</span>
-                    </div>
+                  <div className="flex items-center gap-3">
+                    <Phone className="w-5 h-5 text-primary" />
+                    <span className="text-foreground">+1 (555) 123-4567</span>
                   </div>
-                  <div className="glass-card px-4 py-3 rounded-lg card-hover">
-                    <div className="flex items-center gap-2">
-                      <span className="text-lg">🇺🇸</span>
-                      <span className="text-sm font-medium text-foreground">USA</span>
-                    </div>
+                  <div className="flex items-center gap-3">
+                    <MapPin className="w-5 h-5 text-primary" />
+                    <span className="text-foreground">San Francisco, CA</span>
                   </div>
                 </div>
                 
-                <div className="text-center">
-                  <div className="flex items-center justify-center gap-2 mb-3">
-                    <div className="w-3 h-3 bg-success rounded-full animate-pulse"></div>
-                    <span className="text-sm text-foreground/70">Currently in</span>
-                  </div>
-                  <p className="text-lg font-semibold text-glow mb-4">India</p>
-                  <Button variant="outline" size="sm" className="rounded-full button-magnetic">
-                    Connect now
-                    <ArrowRight className="h-4 w-4 ml-2" />
+                <div className="flex gap-4 mt-8">
+                  <Button size="icon" variant="outline" className="btn-outline">
+                    <Github className="w-5 h-5" />
+                  </Button>
+                  <Button size="icon" variant="outline" className="btn-outline">
+                    <Linkedin className="w-5 h-5" />
+                  </Button>
+                  <Button size="icon" variant="outline" className="btn-outline">
+                    <Mail className="w-5 h-5" />
                   </Button>
                 </div>
               </div>
-
-              {/* Enhanced Tech Stack Card */}
-              <div className="glass-card p-8 space-y-6 card-hover">
-                <div className="flex items-center gap-4">
-                  <div className="p-3 rounded-full bg-accent/20 text-accent">
-                    <Code className="h-8 w-8" />
-                  </div>
-                  <div>
-                    <span className="text-sm font-medium text-accent/80 tracking-wider">TECHNOLOGY</span>
-                    <h3 className="text-2xl font-bold text-glow">Cutting-edge Stack</h3>
-                  </div>
-                </div>
-                <div className="grid grid-cols-3 gap-3">
-                  {techStack.map((tech) => (
-                    <div
-                      key={tech.name}
-                      className="glass-card p-3 rounded-xl text-center card-hover border border-primary/20 hover:border-primary/50"
-                    >
-                      <span className="text-sm font-medium text-foreground">{tech.name}</span>
+            </ScrollReveal>
+            
+            <ScrollReveal className="slide-in-right">
+              <Card className="card">
+                <CardContent className="p-6">
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                        Name
+                      </label>
+                      <Input
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        required
+                        className="w-full"
+                      />
                     </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Right Column */}
-            <div className="space-y-8 scroll-slide-right">
-              {/* Enhanced Profile Card */}
-              <div className="glass-card p-8 text-center space-y-6 card-hover">
-                <div className="w-20 h-20 bg-gradient-to-br from-primary via-secondary to-accent rounded-full flex items-center justify-center mx-auto pulse-glow">
-                  <span className="text-white text-3xl font-bold text-glow">D</span>
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold mb-4 text-glow">Let's work together</h3>
-                  <p className="text-foreground/70 mb-6">Ready to bring your next project to life</p>
-                  <div className="glass-card px-6 py-3 inline-flex items-center gap-3 rounded-full card-hover">
-                    <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
-                    <span className="text-sm font-medium">dhruvpanchal.dev@gmail.com</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Enhanced Inside Scoop Card */}
-              <div className="glass-card p-8 space-y-6 card-hover">
-                <div className="flex items-center gap-4">
-                  <div className="p-3 rounded-full bg-quaternary/20 text-quaternary">
-                    <div className="w-6 h-6 flex items-center justify-center">
-                      <span className="text-lg">🚀</span>
+                    
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                        Email
+                      </label>
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        required
+                        className="w-full"
+                      />
                     </div>
-                  </div>
-                  <div>
-                    <span className="text-sm font-medium text-quaternary/80 tracking-wider">THE INSIDE SCOOP</span>
-                    <h3 className="text-xl font-bold text-glow">Current Project</h3>
-                  </div>
-                </div>
-                <p className="text-lg text-foreground/80">Currently building a custom portfolio platform with cutting-edge animations</p>
-                <Button variant="outline" className="w-full group button-magnetic">
-                  View Recent Work
-                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform ml-2" />
-                </Button>
-              </div>
-
-              {/* Enhanced Standout Card */}
-              <div className="glass-card p-8 space-y-6 card-hover">
-                <div className="flex items-center gap-4">
-                  <div className="p-3 rounded-full bg-primary/20 text-primary">
-                    <div className="w-6 h-6 flex items-center justify-center">
-                      <span className="text-lg">✨</span>
+                    
+                    <div>
+                      <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+                        Message
+                      </label>
+                      <Textarea
+                        id="message"
+                        name="message"
+                        value={formData.message}
+                        onChange={handleInputChange}
+                        required
+                        rows={4}
+                        className="w-full"
+                      />
                     </div>
-                  </div>
-                  <div>
-                    <span className="text-sm font-medium text-primary/80 tracking-wider">IMPACT</span>
-                    <h3 className="text-xl font-bold text-glow">Stand Out</h3>
-                  </div>
-                </div>
-                <p className="text-lg text-foreground/80">Websites that make a difference and leave lasting impressions</p>
-              </div>
-            </div>
+                    
+                    <Button type="submit" className="w-full btn-primary">
+                      <CheckCircle className="w-4 h-4 mr-2" />
+                      Send Message
+                    </Button>
+                  </form>
+                </CardContent>
+              </Card>
+            </ScrollReveal>
           </div>
         </div>
       </section>
 
-      {/* Footer Section */}
-      <ScrollReveal>
-        <section className="container mx-auto px-4 py-16">
-          <div className="text-center mb-12">
-            <p className="text-sm text-muted-foreground mb-2">MY SITE</p>
-            <h2 className="text-4xl font-bold mb-4">
-              Explore, Connect
-              <br />
-              <span className="gradient-text-animated">& Leave Your Mark</span>
-            </h2>
-            <p className="text-muted-foreground">Explore, experiment && say hello</p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            {/* Uses Card */}
-            <div className="glass-card p-6 space-y-4">
-              <div className="flex items-center gap-3 text-purple-500">
-                <Code className="h-5 w-5" />
-                <div className="w-5 h-5 bg-pink-500 rounded-full"></div>
-                <div className="w-5 h-5 bg-green-500 rounded-lg"></div>
-              </div>
-              <h3 className="text-lg font-semibold">Uses</h3>
-              <p className="text-sm text-muted-foreground">
-                Check out my favorite tools and spots around the web.
-              </p>
-              <Button variant="outline" size="sm" className="w-full">
-                Explore Tools
+      {/* Footer */}
+      <footer className="bg-primary text-primary-foreground py-8">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="mb-4 md:mb-0">
+              <p>&copy; 2025 Dhruv Panchal. All rights reserved.</p>
+            </div>
+            <div className="flex gap-4">
+              <Button size="icon" variant="ghost" className="text-primary-foreground hover:bg-white/10">
+                <Github className="w-5 h-5" />
+              </Button>
+              <Button size="icon" variant="ghost" className="text-primary-foreground hover:bg-white/10">
+                <Linkedin className="w-5 h-5" />
+              </Button>
+              <Button size="icon" variant="ghost" className="text-primary-foreground hover:bg-white/10">
+                <Mail className="w-5 h-5" />
               </Button>
             </div>
-
-            {/* Guestbook Card */}
-            <div className="glass-card p-6 space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 bg-purple-500/20 rounded-lg flex items-center justify-center">
-                  <span className="text-purple-500">💬</span>
-                </div>
-                <div className="w-8 h-8 bg-purple-700 rounded-lg"></div>
-              </div>
-              <h3 className="text-lg font-semibold">Guestbook</h3>
-              <p className="text-sm text-muted-foreground">
-                Let me know you were here!
-              </p>
-              <Button variant="outline" size="sm" className="w-full">
-                Sign Guestbook
-              </Button>
-            </div>
-
-            {/* Recent Favorite Card */}
-            <div className="glass-card p-6 space-y-4">
-              <div className="flex items-center gap-2">
-                <Music className="h-5 w-5 text-green-500" />
-                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                <span className="text-sm font-medium text-green-500">Recent Favorite</span>
-              </div>
-              <div className="space-y-2">
-                <p className="text-sm text-muted-foreground">I'm listening to</p>
-                <h4 className="font-semibold">"Namastute"</h4>
-                <p className="text-sm text-muted-foreground">
-                  by <span className="text-purple-500">Seedhe Maut</span> from the album<br />
-                  <span className="font-medium">Namastute</span>
-                </p>
-              </div>
-              <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg h-20 flex items-center justify-center">
-                <Music className="h-8 w-8 text-white" />
-              </div>
-            </div>
           </div>
-        </section>
-      </ScrollReveal>
+        </div>
+      </footer>
     </div>
   );
 };
