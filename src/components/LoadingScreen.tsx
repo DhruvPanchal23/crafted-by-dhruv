@@ -5,9 +5,10 @@ const LoadingScreen = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    // Reduce loading time to prevent content hiding
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2000);
+    }, 500); // Reduced from 2000ms to 500ms
 
     return () => clearTimeout(timer);
   }, []);

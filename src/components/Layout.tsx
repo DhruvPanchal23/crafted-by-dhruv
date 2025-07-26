@@ -17,31 +17,24 @@ const Layout = ({ children }: LayoutProps) => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
-  // Fix Issue 3: Initialize scroll animations
+  // Fix Issue 3: Ensure content visibility on load
   useEffect(() => {
-    const initScrollAnimations = () => {
-      const elements = document.querySelectorAll('.scroll-slide-left, .scroll-slide-right, .scroll-fade-in');
-      
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('in-view');
-            }
-          });
-        },
-        { threshold: 0.1, rootMargin: '50px' }
-      );
-
-      elements.forEach((el) => observer.observe(el));
-      
-      return () => {
-        elements.forEach((el) => observer.unobserve(el));
-      };
+    // Force immediate visibility of all content elements
+    const ensureVisibility = () => {
+      const elements = document.querySelectorAll('.glass-card, .animate-fade-in, h1, h2, h3, p, .scroll-slide-left, .scroll-slide-right');
+      elements.forEach((el) => {
+        if (el instanceof HTMLElement) {
+          el.style.visibility = 'visible';
+          el.style.opacity = '1';
+        }
+      });
     };
 
-    const cleanup = initScrollAnimations();
-    return cleanup;
+    // Run immediately and after a short delay
+    ensureVisibility();
+    const timer = setTimeout(ensureVisibility, 100);
+    
+    return () => clearTimeout(timer);
   }, [location.pathname]);
 
   return (
