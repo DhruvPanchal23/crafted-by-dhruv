@@ -12,6 +12,7 @@ import {
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDark, setIsDark] = useState(true);
+  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -26,6 +27,21 @@ const Navbar = () => {
     } else {
       document.documentElement.classList.remove('dark');
     }
+  }, []);
+
+  // Handle scroll effect for navbar blur
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      setIsScrolled(scrollTop > 20);
+    };
+
+    // Initial check
+    handleScroll();
+    
+    // Add event listener with passive option for better performance
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const toggleTheme = () => {
@@ -60,7 +76,9 @@ const Navbar = () => {
   return (
     <nav className="fixed top-4 w-full z-50 px-4">
       <div className="max-w-4xl mx-auto">
-        <div className="glass-card rounded-full px-6 py-3 border border-border/20">
+        <div className={`glass-card rounded-full px-6 py-3 border border-border/20 transition-all duration-300 ${
+          isScrolled ? 'backdrop-blur-lg bg-background/90 shadow-lg' : 'backdrop-blur-md bg-background/80'
+        }`}>
           <div className="flex justify-between items-center">
             {/* Logo */}
             <Link to="/" className="text-xl font-bold text-primary hover:text-primary/80 transition-colors">
@@ -143,7 +161,9 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden mt-4 glass-card rounded-2xl px-4 py-4 space-y-2 border border-border/20">
+          <div className={`md:hidden mt-4 glass-card rounded-2xl px-4 py-4 space-y-2 border border-border/20 transition-all duration-300 ${
+            isScrolled ? 'backdrop-blur-lg bg-background/90 shadow-lg' : 'backdrop-blur-md bg-background/80'
+          }`}>
             {navItems.map((item) => (
               <Link
                 key={item.name}

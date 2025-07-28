@@ -153,6 +153,9 @@
       hsl(var(--background));
     min-height: 100vh;
     overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   /* Enhanced Glass Effects */
@@ -515,6 +518,13 @@
   /* Fix Issue 1: Ensure all text content is always visible */
   h1, h2, h3, h4, h5, h6, p, span, div {
     visibility: visible !important;
+  }
+
+  /* Fix text clipping issue: Ensure proper line height for large text */
+  h1, h2, h3 {
+    line-height: 1.2 !important;
+    padding-bottom: 0.1em !important;
+    margin-bottom: 0.1em !important;
   }
 
   /* Fix Issue 1: Ensure glass cards are always visible */

@@ -11,10 +11,10 @@ const Footer = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-lg font-medium mb-4 text-muted-foreground tracking-wide">MY SITE</h2>
-          <h3 className="text-5xl md:text-6xl font-bold mb-2 leading-tight">
+          <h3 className="text-5xl md:text-6xl font-bold mb-2 leading-[1.2]">
             Explore, experiment
           </h3>
-          <h3 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+          <h3 className="text-5xl md:text-6xl font-bold mb-6 leading-[1.2]">
             <span className="gradient-text italic">& say hello</span>
           </h3>
           <p className="text-lg text-muted-foreground mb-8">

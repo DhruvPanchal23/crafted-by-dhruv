@@ -38,7 +38,7 @@ const Layout = ({ children }: LayoutProps) => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen bg-background relative overflow-hidden">
+    <div className="min-h-screen bg-background relative">
       <DynamicBackground />
       <ParticleBackground />
       <div className="relative z-10">

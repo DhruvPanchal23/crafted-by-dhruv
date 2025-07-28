@@ -9,6 +9,7 @@ const About = () => {
     { icon: Clock, label: "Coding since", value: "2022" },
     { icon: MapPin, label: "Location", value: "Surat, India" },
     { icon: Award, label: "Status", value: "Remote-ready" },
+    { icon: Target, label: "Currently", value: "Pre-final year B.Tech CSE student" },
   ];
 
   const proficiencyCards = [
