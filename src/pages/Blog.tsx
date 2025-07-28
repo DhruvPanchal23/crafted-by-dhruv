@@ -14,7 +14,7 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center py-20">
-      <div className="container mx-auto px-4 text-center">
+      <div className="text-center">
         {/* Header */}
         <div className="mb-16 animate-fade-in">
           <h1 className="text-4xl lg:text-6xl font-bold mb-4">

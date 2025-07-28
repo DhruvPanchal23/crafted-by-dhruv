@@ -7,7 +7,7 @@ const EngineRoom = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center py-20">
-      <div className="container mx-auto px-4 text-center max-w-2xl">
+      <div className="text-center max-w-2xl">
         {/* Animated 404 */}
         <div className="mb-12 animate-fade-in">
           <div className="text-8xl lg:text-9xl font-bold text-primary/20 mb-4 animate-pulse">

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Heart, Globe, Code, Music } from "lucide-react";
+import { ArrowRight, Heart, Globe, Code, Music, Download, Mail, Link } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import RotatingEarth from "@/components/RotatingEarth";
 import dhruvPortrait from "@/assets/dhruv-portrait.jpg";
@@ -9,7 +9,6 @@ import ParticleBackground from "@/components/ParticleBackground"; // Added Parti
 
 const Home = () => {
   const [greeting, setGreeting] = useState("");
-
   useEffect(() => {
     const hour = new Date().getHours();
     if (hour < 12) setGreeting("Good Morning");
@@ -66,7 +65,7 @@ const Home = () => {
     <div className="min-h-screen py-20">
 
       {/* Welcoming Lines Section */}
-      <div className="flex flex-wrap justify-center items-center gap-2 mb-8 mt-0 px-4">
+      <div className="flex flex-wrap justify-center items-center gap-2 mb-8 mt-0">
         {welcomingLines.map((line, index) => (
           <span
             key={index}
@@ -78,13 +77,13 @@ const Home = () => {
         ))}
       </div>
 
-                                         {/* Hero Section with Enhanced Design */}
-        <section className="flex flex-col items-center justify-center text-center px-4 mb-16">
+                                                                                  {/* Hero Section with Enhanced Design */}
+        <section className="flex flex-col items-center justify-center text-center mb-16">
 
-                 {/* Enhanced Headline with Gradient */}
-         <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-[1.2] mb-6 text-glow-primary gradient-text-flow">
-           Pixels. Logic. Story.
-         </h1>
+                                   {/* Enhanced Headline with Gradient */}
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-[1.2] mb-6 text-glow-primary gradient-text-flow whitespace-nowrap">
+            Pixels. Logic. Story.
+          </h1>
 
                  {/* Enhanced Subheadline */}
          <div className="mb-12">
@@ -105,45 +104,58 @@ const Home = () => {
            <span className="text-lg text-foreground/80">Developer & Designer</span>
          </div>
 
-                 {/* Enhanced CTA Section */}
-         <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-12">
-          <Button 
-            variant="default" 
-            size="lg" 
-            className="px-10 py-5 text-lg rounded-full button-magnetic btn-glow bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
-          >
-            Let's Connect <ArrowRight className="h-5 w-5 ml-2" />
-          </Button>
-          <div className="glass-card px-4 py-2 rounded-full flex items-center gap-2 card-hover">
-            <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
-            <span className="text-foreground/80 text-sm">Available for projects</span>
+                                                                       {/* Enhanced CTA Section */}
+           <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-8">
+            <Button 
+              variant="default" 
+              size="lg" 
+              className="px-8 py-4 text-lg rounded-xl button-magnetic bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 text-white font-semibold flex items-center gap-3"
+            >
+              <Link className="h-5 w-5" />
+              Let's Connect
+            </Button>
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="px-8 py-4 text-lg rounded-xl button-magnetic bg-gray-800 hover:bg-gray-700 border-gray-600 text-white font-semibold flex items-center gap-3"
+            >
+              <Mail className="h-5 w-5" />
+              Hire Me
+            </Button>
+                              </div>
+       </section>
+
+
+
+                            {/* Horizontal Skills Section with Purple Dots */}
+        <div className="relative mb-16 w-screen -ml-[calc(50vw-50%)]">
+          <div className="border-t border-purple-500/30 mb-4"></div>
+          <div className="overflow-hidden">
+            <div className="flex animate-scroll whitespace-nowrap">
+              {[
+                "Development", "Frontend Development", "Backend Development", "React", 
+                "React Specialist", "TypeScript Expert", "Modern Web Apps", "Responsive Design", "API",
+                "Development", "Frontend Development", "Backend Development", "React", 
+                "React Specialist", "TypeScript Expert", "Modern Web Apps", "Responsive Design", "API",
+                "Development", "Frontend Development", "Backend Development", "React", 
+                "React Specialist", "TypeScript Expert", "Modern Web Apps", "Responsive Design", "API",
+                "Development", "Frontend Development", "Backend Development", "React", 
+                "React Specialist", "TypeScript Expert", "Modern Web Apps", "Responsive Design", "API"
+              ].map((skill, index) => (
+                <div key={index} className="flex items-center gap-4 px-8">
+                  <span className="text-foreground/80 text-lg">{skill}</span>
+                  <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                </div>
+              ))}
+            </div>
           </div>
+          <div className="border-t border-purple-500/30 mt-4"></div>
         </div>
-
-                                   {/* Contact Info */}
-          <div className="glass-card px-6 py-3 rounded-full flex items-center gap-3 card-hover mb-16">
-          <svg className="h-4 w-4 text-secondary" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M16 12H8m8 0a4 4 0 11-8 0 4 4 0 018 0zm0 0v4m0-4V8" />
-          </svg>
-          <span className="text-foreground/80 text-sm">dhruvpanchal.dev@gmail.com</span>
-        </div>
-      </section>
-
-                           {/* Enhanced Scrolling Skills Banner */}
-        <div className="border-y border-primary/20 py-12 overflow-hidden relative mb-16">
-        <div className="flex animate-scroll whitespace-nowrap relative z-10">
-          {[...scrollingSkills, ...scrollingSkills].map((skill, index) => (
-            <span key={index} className="px-8 text-foreground/80 text-xl font-medium text-glow">
-              {skill} <span className="text-primary">•</span>
-            </span>
-          ))}
-        </div>
-      </div>
 
                            {/* Enhanced Main Content Grid */}
         <section className="py-32 relative">
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
+        <div className="relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12">
             {/* Left Column */}
             <div className="space-y-8 scroll-slide-left">
               {/* Enhanced Collaboration Card */}
@@ -293,75 +305,7 @@ const Home = () => {
         </div>
       </section>
 
-                                                                                   {/* Footer Section */}
-         <ScrollReveal>
-           <section className="container mx-auto px-4 py-16">
-             <div className="text-center mb-12">
-               <p className="text-sm text-muted-foreground mb-2">MY SITE</p>
-               <h2 className="text-4xl font-bold mb-4">
-                 Explore, Connect
-                 <br />
-                 <span className="gradient-text-animated">& Leave Your Mark</span>
-               </h2>
-               <p className="text-muted-foreground">Explore, experiment && say hello</p>
-             </div>
 
-           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-             {/* Uses Card */}
-             <div className="glass-card p-6 space-y-4">
-               <div className="flex items-center gap-3 text-purple-500">
-                 <Code className="h-5 w-5" />
-                 <div className="w-5 h-5 bg-pink-500 rounded-full"></div>
-                 <div className="w-5 h-5 bg-green-500 rounded-lg"></div>
-               </div>
-               <h3 className="text-lg font-semibold">Uses</h3>
-               <p className="text-sm text-muted-foreground">
-                 Check out my favorite tools and spots around the web.
-               </p>
-               <Button variant="outline" size="sm" className="w-full">
-                 Explore Tools
-               </Button>
-             </div>
-
-             {/* Guestbook Card */}
-             <div className="glass-card p-6 space-y-4">
-               <div className="flex items-center gap-3">
-                 <div className="w-8 h-8 bg-purple-500/20 rounded-lg flex items-center justify-center">
-                   <span className="text-purple-500">💬</span>
-                 </div>
-                 <div className="w-8 h-8 bg-purple-700 rounded-lg"></div>
-               </div>
-               <h3 className="text-lg font-semibold">Guestbook</h3>
-               <p className="text-sm text-muted-foreground">
-                 Let me know you were here!
-               </p>
-               <Button variant="outline" size="sm" className="w-full">
-                 Sign Guestbook
-               </Button>
-             </div>
-
-             {/* Recent Favorite Card */}
-             <div className="glass-card p-6 space-y-4">
-               <div className="flex items-center gap-2">
-                 <Music className="h-5 w-5 text-green-500" />
-                 <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                 <span className="text-sm font-medium text-green-500">Recent Favorite</span>
-               </div>
-               <div className="space-y-2">
-                 <p className="text-sm text-muted-foreground">I'm listening to</p>
-                 <h4 className="font-semibold">"Namastute"</h4>
-                 <p className="text-sm text-muted-foreground">
-                   by <span className="text-purple-500">Seedhe Maut</span> from the album<br />
-                   <span className="font-medium">Namastute</span>
-                 </p>
-               </div>
-               <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg h-20 flex items-center justify-center">
-                 <Music className="h-8 w-8 text-white" />
-               </div>
-             </div>
-           </div>
-         </section>
-       </ScrollReveal>
     </div>
   );
 };

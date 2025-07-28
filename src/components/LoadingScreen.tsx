@@ -29,7 +29,7 @@ const LoadingScreen = () => {
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.5 }}
             >
-              Dhruv
+              Step into Dhruv's Digital Space!
             </motion.div>
             
             <motion.div

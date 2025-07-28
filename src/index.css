@@ -542,3 +542,37 @@
     visibility: visible !important;
     opacity: 1 !important;
   }
+
+  /* Horizontal scrolling animation for skills */
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-25%);
+    }
+  }
+
+  .animate-scroll {
+  animation: scroll 15s linear infinite;
+}
+
+/* Card transition animations */
+.card-transition {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

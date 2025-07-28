@@ -83,7 +83,6 @@ const Links = () => {
 
   return (
     <div className="min-h-screen py-20">
-      <div className="container mx-auto px-4 max-w-4xl">
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in">
           <h1 className="text-4xl lg:text-6xl font-bold mb-4">
@@ -178,7 +177,6 @@ const Links = () => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 
