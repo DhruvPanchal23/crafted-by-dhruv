@@ -112,6 +112,10 @@ export default {
 				scroll: {
 					'0%': { transform: 'translateX(0)' },
 					'100%': { transform: 'translateX(-50%)' }
+				},
+				shimmer: {
+					'0%': { backgroundPosition: '200% 50%' },
+					'100%': { backgroundPosition: '-200% 50%' }
 				}
 			},
 			animation: {

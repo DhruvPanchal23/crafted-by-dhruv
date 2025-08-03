@@ -203,67 +203,91 @@ const About = () => {
       </div>
 
       {/* What I Bring to the Table Section */}
-      <section className="py-20 md:py-32 relative overflow-hidden">
-        {/* Enhanced background with multiple gradients */}
+      <section className="py-16 md:py-24 lg:py-32 relative overflow-hidden">
+        {/* Enhanced multi-layer background with animated gradients */}
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background/98 to-background/95"></div>
-        <div className="absolute top-10 left-1/2 transform -translate-x-1/2 w-[600px] h-[400px] bg-gradient-to-r from-primary/8 via-secondary/6 to-primary/4 rounded-full blur-3xl opacity-60"></div>
-        <div className="absolute bottom-10 left-1/4 w-[300px] h-[300px] bg-gradient-to-br from-secondary/8 to-primary/6 rounded-full blur-2xl opacity-40"></div>
-        <div className="absolute top-1/2 right-1/4 w-[200px] h-[200px] bg-gradient-to-tl from-primary/6 to-secondary/4 rounded-full blur-xl opacity-30"></div>
+        <div className="absolute top-10 left-1/2 transform -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-r from-primary/10 via-secondary/8 to-primary/6 rounded-full blur-3xl opacity-60 animate-pulse"></div>
+        <div className="absolute bottom-10 left-1/4 w-[400px] h-[400px] bg-gradient-to-br from-secondary/10 to-primary/8 rounded-full blur-2xl opacity-50"></div>
+        <div className="absolute top-1/2 right-1/4 w-[300px] h-[300px] bg-gradient-to-tl from-primary/8 to-secondary/6 rounded-full blur-xl opacity-40"></div>
+        <div className="absolute top-1/3 left-1/3 w-[200px] h-[200px] bg-gradient-to-r from-primary/6 to-secondary/4 rounded-full blur-lg opacity-30"></div>
         
-        <div className="relative z-10 px-4">
-          {/* Section Header */}
-          <div className="text-center mb-16 md:mb-24">
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-wide group">
-              <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent transition-all duration-300 group-hover:bg-gradient-to-l">
+        <div className="relative z-10 px-4 sm:px-6 lg:px-8">
+          {/* Section Header with enhanced hover animation */}
+          <div className="text-center mb-16 md:mb-20 lg:mb-28">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 md:mb-8 tracking-wide group cursor-default">
+              <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent transition-all duration-700 group-hover:bg-gradient-to-l group-hover:from-secondary group-hover:via-primary group-hover:to-secondary bg-[length:200%_100%] animate-[shimmer_3s_ease-in-out_infinite]">
                 WHAT I BRING TO THE TABLE
               </span>
             </h2>
-            <p className="text-base md:text-lg lg:text-xl text-muted-foreground opacity-90 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground/90 max-w-3xl mx-auto font-light">
               apart from a positive attitude and polite demeanor
             </p>
           </div>
 
-          {/* Enhanced Cards Carousel */}
-          <div className="max-w-7xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-              {/* Left: Enhanced Stacked Card Display */}
-              <div className="relative h-80 md:h-96 flex items-center justify-center order-2 lg:order-1">
-                <div className="relative w-full max-w-md group">
-                  {/* Enhanced stacked layers with better visibility and depth */}
-                  <div className="absolute -top-12 -left-12 w-full h-full rounded-3xl border border-border/5 opacity-20 backdrop-blur-sm bg-gradient-to-br from-background/10 to-background/5 transition-all duration-700 group-hover:opacity-30 group-hover:-top-14 group-hover:-left-14 -z-30"></div>
-                  <div className="absolute -top-8 -left-8 w-full h-full rounded-3xl border border-border/8 opacity-30 backdrop-blur-sm bg-gradient-to-br from-background/15 to-background/8 transition-all duration-500 group-hover:opacity-40 group-hover:-top-10 group-hover:-left-10 -z-20"></div>
-                  <div className="absolute -top-4 -left-4 w-full h-full rounded-3xl border border-border/15 opacity-50 backdrop-blur-sm bg-gradient-to-br from-background/25 to-background/15 transition-all duration-300 group-hover:opacity-60 group-hover:-top-6 group-hover:-left-6 -z-10"></div>
+          {/* Enhanced Cards Carousel with Advanced Animations */}
+          <div className="max-w-8xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-24 items-center">
+              {/* Left: Advanced Stacked Card Display */}
+              <div className="relative h-80 sm:h-96 md:h-[28rem] lg:h-[32rem] flex items-center justify-center order-2 lg:order-1">
+                <div className="relative w-full max-w-md lg:max-w-lg group perspective-1000">
+                  {/* Enhanced stacked layers with sophisticated depth and parallax */}
+                  <div className="absolute -top-16 -left-16 w-full h-full rounded-3xl border border-border/8 opacity-25 backdrop-blur-sm bg-gradient-to-br from-background/15 to-background/8 transition-all duration-1000 group-hover:opacity-35 group-hover:-top-20 group-hover:-left-20 group-hover:rotate-1 -z-30 shadow-2xl shadow-primary/5"></div>
+                  <div className="absolute -top-12 -left-12 w-full h-full rounded-3xl border border-border/12 opacity-35 backdrop-blur-sm bg-gradient-to-br from-background/20 to-background/12 transition-all duration-800 group-hover:opacity-45 group-hover:-top-16 group-hover:-left-16 group-hover:-rotate-1 -z-20 shadow-xl shadow-primary/8"></div>
+                  <div className="absolute -top-8 -left-8 w-full h-full rounded-3xl border border-border/18 opacity-50 backdrop-blur-sm bg-gradient-to-br from-background/30 to-background/18 transition-all duration-600 group-hover:opacity-60 group-hover:-top-12 group-hover:-left-12 group-hover:rotate-0.5 -z-10 shadow-lg shadow-primary/12"></div>
+                  <div className="absolute -top-4 -left-4 w-full h-full rounded-3xl border border-border/25 opacity-65 backdrop-blur-sm bg-gradient-to-br from-background/35 to-background/25 transition-all duration-400 group-hover:opacity-75 group-hover:-top-8 group-hover:-left-8 group-hover:-rotate-0.5 -z-5 shadow-md shadow-primary/15"></div>
                   
-                  {/* Main card with enhanced styling and hover effects */}
-                  <div className="glass-card p-6 md:p-8 rounded-3xl border border-border/30 shadow-2xl relative overflow-hidden backdrop-blur-xl bg-background/40 transition-all duration-300 group-hover:shadow-primary/20 group-hover:scale-[1.02]">
-                    {/* Enhanced background effects */}
-                    <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-primary/20 via-secondary/10 to-transparent rounded-full blur-2xl transition-opacity duration-500 group-hover:opacity-80"></div>
-                    <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-secondary/15 via-primary/8 to-transparent rounded-full blur-xl"></div>
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 rounded-3xl"></div>
+                  {/* Main card with advanced styling and 3D hover effects */}
+                  <div className="glass-card p-6 sm:p-8 md:p-10 rounded-3xl border border-border/40 shadow-2xl relative overflow-hidden backdrop-blur-xl bg-background/50 transition-all duration-500 group-hover:shadow-primary/25 group-hover:scale-[1.02] group-hover:rotate-0 transform-gpu hover:shadow-3xl">
+                    {/* Enhanced background effects with animated gradients */}
+                    <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-primary/25 via-secondary/15 to-transparent rounded-full blur-2xl transition-all duration-700 group-hover:opacity-90 group-hover:scale-110"></div>
+                    <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-tr from-secondary/20 via-primary/12 to-transparent rounded-full blur-xl transition-all duration-500 group-hover:scale-105"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-secondary/8 rounded-3xl"></div>
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full blur-3xl animate-pulse"></div>
                     
                     <div className="relative z-10">
-                      <div className="text-center space-y-6">
-                        {/* Enhanced tag with better contrast and glow */}
-                        <div className="mb-6">
-                          <span className="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-primary/20 to-secondary/15 border border-primary/30 text-sm font-semibold text-primary shadow-lg shadow-primary/20 transition-all duration-300 hover:shadow-primary/30 hover:scale-105 backdrop-blur-sm">
-                            {cards[currentCard].label}
+                      <div className="text-center space-y-6 md:space-y-8">
+                        {/* Enhanced tag with sophisticated glow and animations */}
+                        <div className="mb-6 md:mb-8">
+                          <span className="inline-block px-4 py-2.5 md:px-6 md:py-3 rounded-full bg-gradient-to-r from-primary/25 to-secondary/20 border border-primary/40 text-sm md:text-base font-bold text-primary shadow-lg shadow-primary/25 transition-all duration-300 hover:shadow-primary/40 hover:scale-105 backdrop-blur-md relative overflow-hidden group/tag">
+                            <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 opacity-0 group-hover/tag:opacity-100 transition-opacity duration-300"></div>
+                            <span className="relative z-10">{cards[currentCard].label}</span>
                           </span>
                         </div>
                         
-                        {/* Enhanced title with better typography hierarchy */}
-                        <div className="space-y-2">
-                          <p className="text-sm text-muted-foreground/80 font-medium tracking-wide">It feels like</p>
-                          <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-foreground leading-tight transition-all duration-500 ease-in-out">
+                        {/* Enhanced title with sophisticated typography hierarchy and animations */}
+                        <div className="space-y-3 md:space-y-4">
+                          <p className="text-xs md:text-sm text-muted-foreground/80 font-medium tracking-wider uppercase opacity-70">It feels like</p>
+                          <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-foreground leading-tight transition-all duration-500 ease-in-out">
                             {cards[currentCard].title === "It feels like 2 freelancers in one." ? (
-                              <>
-                                It feels like{" "}
-                                <span className="text-2xl md:text-3xl lg:text-4xl font-black bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                              <span className="block">
+                                <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-muted-foreground/90">It feels like</span>
+                                <br />
+                                <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-pulse">
                                   2 freelancers
-                                </span>{" "}
-                                in one.
-                              </>
+                                </span>
+                                <br />
+                                <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-muted-foreground/90">in one.</span>
+                              </span>
+                            ) : cards[currentCard].title === "100% Satisfaction Rate" ? (
+                              <span className="block">
+                                <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                                  100%
+                                </span>
+                                <br />
+                                <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-muted-foreground/90">Satisfaction Rate</span>
+                              </span>
+                            ) : cards[currentCard].title === "Fast Responses" ? (
+                              <span className="block">
+                                <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">
+                                  Fast
+                                </span>
+                                <br />
+                                <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-muted-foreground/90">Responses</span>
+                              </span>
                             ) : (
-                              cards[currentCard].title
+                              <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-pulse">
+                                ∞
+                              </span>
                             )}
                           </h3>
                         </div>
@@ -271,59 +295,63 @@ const About = () => {
                     </div>
                   </div>
 
-                  {/* Floating particles/glow effects */}
-                  <div className="absolute top-1/4 right-1/4 w-2 h-2 bg-primary/60 rounded-full animate-pulse"></div>
-                  <div className="absolute bottom-1/3 left-1/4 w-1 h-1 bg-secondary/70 rounded-full animate-pulse delay-1000"></div>
-                  <div className="absolute top-1/2 right-1/3 w-1.5 h-1.5 bg-primary/50 rounded-full animate-pulse delay-500"></div>
+                  {/* Enhanced floating particles with varied animations */}
+                  <div className="absolute top-1/4 right-1/4 w-3 h-3 bg-gradient-to-r from-primary to-secondary rounded-full animate-pulse opacity-60 shadow-lg shadow-primary/50"></div>
+                  <div className="absolute bottom-1/3 left-1/4 w-2 h-2 bg-gradient-to-r from-secondary to-primary rounded-full animate-pulse delay-1000 opacity-70 shadow-md shadow-secondary/40"></div>
+                  <div className="absolute top-1/2 right-1/3 w-2.5 h-2.5 bg-gradient-to-r from-primary to-secondary rounded-full animate-pulse delay-500 opacity-50 shadow-lg shadow-primary/30"></div>
+                  <div className="absolute top-3/4 left-1/2 w-1.5 h-1.5 bg-secondary rounded-full animate-ping opacity-40"></div>
                 </div>
               </div>
 
-              {/* Right: Enhanced Content and Navigation with better spacing */}
-              <div className="space-y-8 md:space-y-12 order-1 lg:order-2">
-                <div className="transition-all duration-500 ease-in-out space-y-6 md:space-y-8">
-                  <h4 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent leading-tight">
+              {/* Right: Enhanced Content with Improved Spacing and Typography */}
+              <div className="space-y-8 md:space-y-12 lg:space-y-16 order-1 lg:order-2">
+                <div className="transition-all duration-700 ease-in-out space-y-6 md:space-y-10">
+                  <h4 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent leading-tight tracking-tight">
                     {cards[currentCard].label}
                   </h4>
-                  <p className="text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed opacity-90 max-w-xl">
+                  <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground/95 leading-relaxed font-light max-w-2xl tracking-wide">
                     {cards[currentCard].mainText}
                   </p>
                 </div>
 
-                {/* Enhanced Navigation with better accessibility and spacing */}
-                <div className="flex items-center gap-6 md:gap-8">
+                {/* Enhanced Navigation with Sophisticated Styling */}
+                <div className="flex items-center gap-6 md:gap-8 pt-4">
                   <button
                     onClick={prevCard}
-                    className="group w-12 h-12 md:w-14 md:h-14 rounded-full bg-background/60 hover:bg-background/80 border border-border/30 hover:border-primary/50 backdrop-blur-sm flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/20 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-background"
+                    className="group relative w-11 h-11 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-full bg-background/70 hover:bg-background/90 border border-border/40 hover:border-primary/60 backdrop-blur-md flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/25 focus:outline-none focus:ring-2 focus:ring-primary/60 focus:ring-offset-2 focus:ring-offset-background transform-gpu overflow-hidden"
                     aria-label="Previous highlight"
                   >
-                    <ChevronLeft className="h-5 w-5 md:h-6 md:w-6 text-foreground group-hover:text-primary transition-colors duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <ChevronLeft className="h-5 w-5 md:h-6 md:w-6 text-foreground group-hover:text-primary transition-all duration-300 relative z-10 group-hover:scale-110" />
                   </button>
                   <button
                     onClick={nextCard}
-                    className="group w-12 h-12 md:w-14 md:h-14 rounded-full bg-background/60 hover:bg-background/80 border border-border/30 hover:border-primary/50 backdrop-blur-sm flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/20 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-background"
+                    className="group relative w-11 h-11 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-full bg-background/70 hover:bg-background/90 border border-border/40 hover:border-primary/60 backdrop-blur-md flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/25 focus:outline-none focus:ring-2 focus:ring-primary/60 focus:ring-offset-2 focus:ring-offset-background transform-gpu overflow-hidden"
                     aria-label="Next highlight"
                   >
-                    <ChevronRight className="h-5 w-5 md:h-6 md:w-6 text-foreground group-hover:text-primary transition-colors duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <ChevronRight className="h-5 w-5 md:h-6 md:w-6 text-foreground group-hover:text-primary transition-all duration-300 relative z-10 group-hover:scale-110" />
                   </button>
                 </div>
 
-                {/* Enhanced Card indicators with tooltips and better animations */}
-                <div className="flex gap-3 md:gap-4">
+                {/* Enhanced pagination indicators with tooltips and sophisticated animations */}
+                <div className="flex gap-3 md:gap-4 pt-2">
                   {cards.map((card, index) => (
                     <button
                       key={index}
                       onClick={() => setCurrentCard(index)}
-                      className={`group relative transition-all duration-300 rounded-full focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-background ${
+                      className={`group relative transition-all duration-400 rounded-full focus:outline-none focus:ring-2 focus:ring-primary/60 focus:ring-offset-2 focus:ring-offset-background transform-gpu overflow-hidden ${
                         index === currentCard 
-                          ? 'w-8 md:w-10 h-3 md:h-4 bg-gradient-to-r from-primary to-secondary shadow-lg shadow-primary/30 scale-110' 
-                          : 'w-3 md:w-4 h-3 md:h-4 bg-muted hover:bg-muted-foreground/70 hover:scale-125'
+                          ? 'w-10 md:w-12 lg:w-14 h-3 md:h-4 bg-gradient-to-r from-primary to-secondary shadow-lg shadow-primary/40 scale-110' 
+                          : 'w-3 md:w-4 h-3 md:h-4 bg-muted/60 hover:bg-muted-foreground/80 hover:scale-125 hover:shadow-md hover:shadow-primary/20'
                       }`}
                       aria-label={`Go to ${card.label}`}
                       title={`${card.label}: ${card.title}`}
                     >
                       {index === currentCard && (
-                        <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary rounded-full animate-pulse opacity-50"></div>
+                        <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary rounded-full animate-pulse opacity-60"></div>
                       )}
+                      <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></div>
                     </button>
                   ))}
                 </div>
