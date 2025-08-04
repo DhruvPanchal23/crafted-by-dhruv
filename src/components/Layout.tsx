@@ -2,7 +2,7 @@ import { ReactNode, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import AnimatedMeshBackground from "./AnimatedMeshBackground";
+import BlinkLabsBackground from "./BlinkLabsBackground";
 
 interface LayoutProps {
   children: ReactNode;
@@ -38,7 +38,7 @@ const Layout = ({ children }: LayoutProps) => {
 
   return (
     <div className="min-h-screen bg-background relative">
-      <AnimatedMeshBackground />
+      <BlinkLabsBackground />
       <div className="relative z-10">
         <Navbar />
         <main className="pt-24">
