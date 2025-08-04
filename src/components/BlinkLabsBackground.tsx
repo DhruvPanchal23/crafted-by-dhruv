@@ -16,9 +16,8 @@ const BlinkLabsBackground = () => {
     const dots: Array<{
       x: number;
       y: number;
-      baseOpacity: number;
+      opacity: number;
       phase: number;
-      size: number;
     }> = [];
 
     const resizeCanvas = () => {
@@ -29,33 +28,40 @@ const BlinkLabsBackground = () => {
 
     const initializeDots = () => {
       dots.length = 0;
-      const spacing = 40;
-      const cols = Math.ceil(canvas.width / spacing);
-      const rows = Math.ceil(canvas.height / spacing);
+      const spacing = 24; // Smaller spacing for more dots like Blink Labs
+      const offsetX = 12;
+      const offsetY = 12;
       
-      for (let i = 0; i < cols; i++) {
-        for (let j = 0; j < rows; j++) {
+      for (let x = offsetX; x < canvas.width + spacing; x += spacing) {
+        for (let y = offsetY; y < canvas.height + spacing; y += spacing) {
           dots.push({
-            x: i * spacing + (spacing / 2),
-            y: j * spacing + (spacing / 2),
-            baseOpacity: Math.random() * 0.3 + 0.1,
-            phase: Math.random() * Math.PI * 2,
-            size: Math.random() * 2 + 1
+            x,
+            y,
+            opacity: Math.random() * 0.4 + 0.1,
+            phase: Math.random() * Math.PI * 2
           });
         }
       }
     };
 
     const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      // Dark background similar to Blink Labs
+      ctx.fillStyle = "#0a0a0a";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
       
-      dots.forEach((dot) => {
-        const opacity = dot.baseOpacity + Math.sin(time * 0.001 + dot.phase) * 0.2;
-        const size = dot.size + Math.sin(time * 0.0008 + dot.phase) * 0.5;
+      dots.forEach((dot, index) => {
+        // Very subtle pulsing animation
+        const pulseIntensity = 0.3;
+        const speed = 0.0005;
+        const animatedOpacity = dot.opacity + 
+          Math.sin(time * speed + dot.phase + index * 0.01) * pulseIntensity;
+        
+        // Ensure opacity stays within bounds
+        const finalOpacity = Math.max(0.05, Math.min(0.4, animatedOpacity));
         
         ctx.beginPath();
-        ctx.arc(dot.x, dot.y, Math.max(0.5, size), 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(100, 100, 120, ${Math.max(0, opacity)})`;
+        ctx.arc(dot.x, dot.y, 1, 0, Math.PI * 2); // Very small dots (1px radius)
+        ctx.fillStyle = `rgba(120, 120, 140, ${finalOpacity})`; // Subtle blue-gray color
         ctx.fill();
       });
       
@@ -82,9 +88,6 @@ const BlinkLabsBackground = () => {
     <canvas
       ref={canvasRef}
       className="fixed inset-0 w-full h-full pointer-events-none z-0"
-      style={{
-        background: "linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%)",
-      }}
     />
   );
 };
