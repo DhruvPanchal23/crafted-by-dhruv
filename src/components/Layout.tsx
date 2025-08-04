@@ -2,8 +2,7 @@ import { ReactNode, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import ParticleBackground from "./ParticleBackground";
-import DynamicBackground from "./DynamicBackground";
+import AnimatedMeshBackground from "./AnimatedMeshBackground";
 
 interface LayoutProps {
   children: ReactNode;
@@ -39,8 +38,7 @@ const Layout = ({ children }: LayoutProps) => {
 
   return (
     <div className="min-h-screen bg-background relative">
-      <DynamicBackground />
-      <ParticleBackground />
+      <AnimatedMeshBackground />
       <div className="relative z-10">
         <Navbar />
         <main className="pt-24">
